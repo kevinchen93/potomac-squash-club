@@ -1,0 +1,2 @@
+class CourtReservationsController < ApplicationController
+end
