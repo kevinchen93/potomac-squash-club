@@ -1,1 +1,18 @@
-hi
+<table>
+  <thead>
+    <tr>
+      <th>Court 1</th>
+      <th>Court 2</th>
+      <th>Court 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% court_reservations_today.each do |c1,c2,c3| %>
+      <tr>
+	<td><%= c1.start_time %></td>
+	<td><%= c2.start_time %></td>
+	<td><%= c3.start_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

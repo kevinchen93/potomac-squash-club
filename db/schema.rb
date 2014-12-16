@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20141216170907) do
   create_table "court_reservations", force: true do |t|
     t.integer  "court_number"
     t.string   "start_time"
+    t.string   "date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
