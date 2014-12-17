@@ -6,6 +6,7 @@ module CourtReservationsHelper
       court_reservation.users.each do |user|
         s << user.name << " | "
       end
+    end
     s
   end
 
@@ -33,5 +34,4 @@ module CourtReservationsHelper
     end
     courts
   end
-
 end
