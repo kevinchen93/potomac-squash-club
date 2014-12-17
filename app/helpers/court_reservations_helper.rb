@@ -6,6 +6,8 @@ module CourtReservationsHelper
       court_reservation.users.each do |user|
         s << user.name << " | "
       end
+    else
+      s << "free"
     end
     s
   end
