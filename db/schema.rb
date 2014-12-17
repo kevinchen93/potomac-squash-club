@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216170907) do
+ActiveRecord::Schema.define(version: 20141217013423) do
 
   create_table "court_reservations", force: true do |t|
     t.integer  "court_number"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20141216170907) do
     t.string   "date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "court_reservations_users", id: false, force: true do |t|
+    t.integer "user_id",              null: false
+    t.integer "court_reservation_id", null: false
   end
 
   create_table "users", force: true do |t|

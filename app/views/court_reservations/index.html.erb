@@ -9,9 +9,21 @@
   <tbody>
     <% court_reservations_today.each do |c1,c2,c3| %>
       <tr>
-	<td><%= c1.start_time %></td>
-	<td><%= c2.start_time %></td>
-	<td><%= c3.start_time %></td>
+	<td>
+	  <%= c1.start_time %>
+	  <br/>
+	  <%= reserved_by_whom c1 %>
+	</td>
+	<td>
+	  <%= c2.start_time %>
+	  <br/>
+	  <%= reserved_by_whom c2 %>
+	</td>
+	<td>
+	  <%= c3.start_time %>
+	  <br/>
+	  <%= reserved_by_whom c3 %>
+	</td>
       </tr>
     <% end %>
   </tbody>
