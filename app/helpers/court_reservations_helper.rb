@@ -3,9 +3,8 @@ module CourtReservationsHelper
   def reserved_by_whom(court_reservation)
     s = ""
     if court_reservation.users.any?
-      court_reservation.users.each do |user|
-        s << user.name << " | "
-      end
+      s = court_reservation.users.first.name
+      #court_reservation.users.each {|user| s << user.name << " | "}
     else
       s << "free"
     end

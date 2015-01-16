@@ -1,0 +1,22 @@
+<signin>
+  <% provide(:title, "Log In") %>
+  <div class="row">
+    <div>
+      <%= form_for(:session, url: login_path) do |f| %>
+	
+	<!-- <%= f.label :name %> -->
+	<%= f.text_field :name, :placeholder => "Username"  %>
+	
+	<!-- <%= f.label :password %> -->
+	<%= f.password_field :password, :placeholder => "Password" %>
+	
+	<%= f.label :remember_me, class: "checkbox inline" do %>
+	  <span class="remember-text"><%= f.check_box :remember_me %><p>Remember me on this computer</p></span>
+	<% end %>
+	
+	<%= f.submit "Log in", class: "btn btn-primary" %>
+      <% end %>
+      
+    </div>
+  </div>
+</signin>
