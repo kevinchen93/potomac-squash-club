@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20141217013423) do
 
   create_table "court_reservations", force: true do |t|
     t.integer  "court_number"
-    t.string   "start_time"
-    t.string   "date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "start_time"
+    t.integer  "duration_minutes"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "court_reservations_users", id: false, force: true do |t|

@@ -6,16 +6,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-hours = %w(6 7 8 9 10 11 12 1 2 3 4 5 6 7 8 9)
-today = Time.now.strftime '%Y-%m-%d'
+def date_format(datetime, hour, minute)
+  month = datetime.month
+  day = datetime.day
+  year = datetime.year
+  "#{month} #{day} #{year} #{hour}:#{minute}:00"
+end
+
+hours = %w(06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21) #%w(6 7 8 9 10 11 12 1 2 3 4 5 6 7 8 9)
+
+now = DateTime.now
 
 (1..3).to_a.each do |court_number|
   hours.each do |hour|
+
     minute = court_number==1 ? "00" : (court_number==2 ? "30" : "15")
-    start_time = hour + ":" + minute
-    CourtReservation.create!(court_number: court_number,
-                             start_time: start_time,
-                             date: today)
+
+    date_string = date_format(now, hour, minute)
+    
+    puts "Creating Court #{court_number} reservation for #{date_string}"
+
+    court_res = CourtReservation.new(court_number: court_number,
+                                     duration_minutes: 60,
+                                     start_time: date_string)
+    court_res.save!
   end
 end
 
@@ -24,4 +38,4 @@ user = User.create!(username: 'kmc3',
                     first_name: 'Kevin',
                     last_name: 'Chen')
 user.court_reservations << CourtReservation.find(1)
-user.save
+user.save!
