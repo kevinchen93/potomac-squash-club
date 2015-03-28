@@ -19,8 +19,9 @@ today = Time.now.strftime '%Y-%m-%d'
   end
 end
 
-User.create!(name: 'Kevin',
-             password: 'password')
-user = User.find_by(name: 'Kevin')
+user = User.create!(username: 'kmc3',
+                    password: 'foobar',
+                    first_name: 'Kevin',
+                    last_name: 'Chen')
 user.court_reservations << CourtReservation.find(1)
 user.save
