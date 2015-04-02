@@ -7,7 +7,10 @@
     </tr>
   </thead>
   <tbody>
-    <% for [c1, c2, c3] in court_reservations_today: %>
+	<% courts = court_reservations_today %>
+    <% for c1, i in courts: %>
+       <% c2 = courts[i + 1] %>
+       <% c3 = courts[i + 1] %>
       <tr>
 	<td>
 	  <%= c1.start_time %>

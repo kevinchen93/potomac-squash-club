@@ -11,11 +11,12 @@ class CourtReservationTest < ActiveSupport::TestCase
 
   test "should return the court reservations for TODAY" do
     now = DateTime.now
-    hour = "04" #sprintf "%02d", now.hour
+    hour = "12" #sprintf "%02d", now.hour
     minute = "30" #sprintf "%02d", now.minute
-    cr = CourtReservation.create!(court_number: 1, duration_minutes: 60, start_time: date_format(now, hour, minute))
+    #cr = CourtReservation.create!(court_number: 1, duration_minutes: 60, start_time: date_format(now, hour, minute))
+    cr = CourtReservation.create!(court_number: 1, duration_minutes: 60, start_time: Time.now.in_time_zone('Eastern Time (US & Canada)').to_datetime)
     puts "Court reservation date: #{cr.start_time} .... #{cr.start_time.to_date}"
-    #assert cr.today?
+    assert cr.today?
     todays_reservations = CourtReservation.on_date(Date.today)
     assert_equal 1, todays_reservations.length, "Only 1 reservation should exist for today"
   end
