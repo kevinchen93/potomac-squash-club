@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <% for court_reservations_today.each do |c1,c2,c3| %>
+    <% for [c1, c2, c3] in court_reservations_today: %>
       <tr>
 	<td>
 	  <%= c1.start_time %>

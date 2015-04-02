@@ -1,5 +1,12 @@
 module CourtReservationsHelper
 
+  def date_format(datetime, hour, minute)
+    month = datetime.month
+    day = datetime.day
+    year = datetime.year
+    "#{month}/#{day}/#{year} #{hour}:#{minute}:00"
+  end
+
   def reserved_by_whom(court_reservation)
     s = ""
     if court_reservation.users.any?
