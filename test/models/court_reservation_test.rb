@@ -2,6 +2,16 @@ require 'test_helper'
 
 class CourtReservationTest < ActiveSupport::TestCase
 
+  test "should return the court's reserver" do
+    cr = CourtReservation.new(court_number: 1, duration_minutes: 60, start_time: "Jan 1st 2015 18:30:00 EST")
+    user = User.create!(username: 'kmc3', password: 'foobar', first_name: 'Kevin', last_name: 'Chen')
+    cr.users << user
+    cr.save
+
+    assert_equal user, cr.users.first
+    
+  end
+
   test "should create reservation with proper date" do
     cr = CourtReservation.new(court_number: 1, duration_minutes: 60, start_time: "Jan 1st 2015 18:30:00 EST")
     assert_equal 1, cr.start_time.month.to_i
