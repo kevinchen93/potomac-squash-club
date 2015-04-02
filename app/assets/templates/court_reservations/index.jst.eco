@@ -12,17 +12,17 @@
 	<td>
 	  <%= c1.start_time %>
 	  <br/>
-	  <%= reserved_by_whom c1 %>
+	  <%= c1.reserver || "Free" %>
 	</td>
 	<td>
 	  <%= c2.start_time %>
 	  <br/>
-	  <%= reserved_by_whom c2 %>
+	  <%= c2.reserver || "Free" %>
 	</td>
 	<td>
 	  <%= c3.start_time %>
 	  <br/>
-	  <%= reserved_by_whom c3 %>
+	  <%= c3.reserver || "Free" %>
 	</td>
       </tr>
     <% end %>

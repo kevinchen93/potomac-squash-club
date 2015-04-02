@@ -26,6 +26,8 @@ class CourtReservationTest < ActiveSupport::TestCase
     cr.users << user
     cr.save
     assert_equal user, cr.users.first
+    assert cr.reserved?
+    assert_equal "Kevin Chen", cr.reserver.to_s
   end
 
   test "should create reservation with proper date" do

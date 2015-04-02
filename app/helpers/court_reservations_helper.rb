@@ -7,17 +7,6 @@ module CourtReservationsHelper
     "#{month}/#{day}/#{year} #{hour}:#{minute}:00"
   end
 
-  def reserved_by_whom(court_reservation)
-    s = ""
-    if court_reservation.users.any?
-      s = court_reservation.users.first.name
-      #court_reservation.users.each {|user| s << user.name << " | "}
-    else
-      s << "free"
-    end
-    s
-  end
-
   def time_from_string(string)
     Time.strptime(string, '%Y-%m-%dT%l:%M:%S-0500')
   end
@@ -41,5 +30,6 @@ module CourtReservationsHelper
       courts += [[c1, c2, c3]]
     end
     courts
+    CourtReservation.all
   end
 end

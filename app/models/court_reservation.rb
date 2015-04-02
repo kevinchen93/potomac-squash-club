@@ -8,6 +8,16 @@ class CourtReservation < ActiveRecord::Base
   validates :court_number, presence: true
   validates :start_time, presence: true
 
+  def reserved?
+    !users.empty?
+  end
+
+  def reserver
+    if reserved?
+      users.first
+    end
+  end
+
   def self.on_date(date)
     CourtReservation.all.select { |cr| cr.start_time.to_date == date }
   end
