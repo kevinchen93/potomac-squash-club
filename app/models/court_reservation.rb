@@ -1,7 +1,6 @@
 class CourtReservation < ActiveRecord::Base
 
-  #scope :today, -> { where("start_time BETWEEN ? AND ?", DateTime.now.beginning_of_day, DateTime.now.end_of_day) }
-  #scope :today, -> { where("DATE(start_time) = ?", Date.today) }
+  scope :today, -> { where("start_time BETWEEN ? AND ?", DateTime.now.beginning_of_day, DateTime.now.end_of_day) }
 
   has_and_belongs_to_many :users
   
@@ -16,10 +15,6 @@ class CourtReservation < ActiveRecord::Base
     if reserved?
       users.first
     end
-  end
-
-  def self.on_date(date)
-    CourtReservation.all.select { |cr| cr.start_time.to_date == date }
   end
 
   def today?

@@ -17,7 +17,7 @@ module CourtReservationsHelper
 
   # Returns a list of court reservations today, sorted by start time.
   def court_reservations_today
-    today = CourtReservation.on_date(Date.today) #CourtReservation.today
+    today = CourtReservation.today
     courts1 = today.where(court_number: 1)
     courts2 = today.where(court_number: 2)
     courts3 = today.where(court_number: 3)
@@ -30,6 +30,5 @@ module CourtReservationsHelper
       courts += [[c1, c2, c3]]
     end
     courts
-    CourtReservation.all
   end
 end
