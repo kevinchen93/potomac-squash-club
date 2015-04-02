@@ -34,6 +34,6 @@ class UsersController < ApplicationController
   end
   
   def user_params
-    params.permit(:first_name, :last_name, :username, :password)
+    params.slice(:first_name, :last_name, :username, :password).permit!
   end
 end

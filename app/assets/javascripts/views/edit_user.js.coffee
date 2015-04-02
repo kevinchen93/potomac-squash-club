@@ -12,7 +12,7 @@ class App.Views.EditUser extends Backbone.View
     this
 
   saveModel: (e) ->
-    @model.set
+    @model.save
       first_name: @$('.user-first-name').val()
       last_name: @$('.user-last-name').val()
       username: @$('.user-username').val()

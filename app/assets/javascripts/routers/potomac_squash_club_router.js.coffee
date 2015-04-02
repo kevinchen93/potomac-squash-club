@@ -10,7 +10,7 @@ class App.Routers.PotomacSquashClubRouter extends Backbone.Router
 
   showCourtReservation: (id) ->
     alert('router#showCourtReservation')
-    model = App.AllCourtReservations[id - 1]
+    model = App.AllCourtReservations.get(id)
     view = new App.Views.ShowCourtReservation(model: model)
     $('#container').html(view.render().el)
 
