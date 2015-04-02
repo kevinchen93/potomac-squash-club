@@ -21,10 +21,10 @@ module CourtReservationsHelper
 
   # Returns a list of court reservations today, sorted by start time.
   def court_reservations_today
-    today = Time.now.strftime('%Y-%m-%d')
-    courts1 = CourtReservation.where(date: today, court_number: 1)
-    courts2 = CourtReservation.where(date: today, court_number: 2)
-    courts3 = CourtReservation.where(date: today, court_number: 3)
+    today = CourtReservation.today
+    courts1 = today.where(court_number: 1)
+    courts2 = today.where(court_number: 2)
+    courts3 = today.where(court_number: 3)
     courts = []
     for i in 1...courts1.length
       c1 = courts1[i]

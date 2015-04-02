@@ -1,16 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+CourtReservation.destroy_all
+User.destroy_all
 
 def date_format(datetime, hour, minute)
   month = datetime.month
   day = datetime.day
   year = datetime.year
-  "#{month} #{day} #{year} #{hour}:#{minute}:00"
+  "#{month}/#{day}/#{year} #{hour}:#{minute}:00"
 end
 
 hours = %w(06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21) #%w(6 7 8 9 10 11 12 1 2 3 4 5 6 7 8 9)
