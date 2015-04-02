@@ -1,0 +1,7 @@
+<input type="text" class="user-first-name" value="<%= @user.get('first_name') %>"
+<br />
+<input type="text" class="user-last-name" value="<%= @user.get('last_name') %>"
+<br />
+<input type="text" class="user-username" value="<%= @user.get('username') %>"
+<br />
+<input type="submit" />

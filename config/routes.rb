@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   get 'reserve', to: 'court_reservations#index'
 
   resources :court_reservations, only: [:index, :show]
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :edit]
 
 end

@@ -10,6 +10,7 @@ class App.Views.CourtReservations extends Backbone.View
     this
 
   showCourtReservation: (e) ->
+    alert 'showCourtReservation' 
     $this = $(e.currentTarget)
     url = $this.attr("href")
     Backbone.history.navigate(url, trigger: true)

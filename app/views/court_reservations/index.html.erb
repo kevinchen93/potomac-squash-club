@@ -11,9 +11,9 @@
     <% court_reservations_today.each do |c1,c2,c3| %>
       <tr>
 	<td>
-	  <%= c1.start_time %>
+	  <%= link_to c1.start_time, c1 %>
 	  <br/>
-	  <%= c1.reserver || "Free" %>
+	  <%= link_to c1.reserver, edit_user_path(c1.reserver) %>
 	</td>
 	<td>
 	  <%= c2.start_time %>

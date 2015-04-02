@@ -16,6 +16,11 @@ hours = %w(06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21) #%w(6 7 8 9 10 11 12
 
 now = DateTime.now
 
+user = User.create!(username: 'kmc3',
+                    password: 'foobar',
+                    first_name: 'Kevin',
+                    last_name: 'Chen')
+
 (1..3).to_a.each do |court_number|
   hours.each do |hour|
 
@@ -28,14 +33,15 @@ now = DateTime.now
     time = Time.zone.parse("#{now.year}-#{pad(now.month)}-#{pad(now.day)} #{hour}:#{minute}:00").utc.in_time_zone('Eastern Time (US & Canada)')
 
     cr1 = CourtReservation.create!(court_number: court_number, duration_minutes: 60, start_time: time)
+    if court_number % 2 == 1
+      cr1.users << user
+      cr1.save!
+    end
     cr2 = CourtReservation.create!(court_number: court_number, duration_minutes: 60, start_time: time + 1.day)
 
   end
 end
 
-user = User.create!(username: 'kmc3',
-                    password: 'foobar',
-                    first_name: 'Kevin',
-                    last_name: 'Chen')
+
 user.court_reservations << CourtReservation.all.first
 user.save!

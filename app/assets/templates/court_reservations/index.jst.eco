@@ -13,19 +13,19 @@
        <% c3 = courts[i + 1] %>
       <tr>
 	<td>
-	  <%= c1.start_time %>
+	  <a href="<%= c1.url() %>"><%= c1.get('start_time') %></a>
 	  <br/>
-	  <%= c1.reserver || "Free" %>
+	  <%= c1.get('reserver') || "Free" %>
 	</td>
 	<td>
-	  <%= c2.start_time %>
+	  <%= c2.get('start_time') %>
 	  <br/>
-	  <%= c2.reserver || "Free" %>
+	  <%= c2.get('reserver') || "Free" %>
 	</td>
 	<td>
-	  <%= c3.start_time %>
+	  <%= c3.get('start_time') %>
 	  <br/>
-	  <%= c3.reserver || "Free" %>
+	  <%= c3.get('reserver') || "Free" %>
 	</td>
       </tr>
     <% end %>
