@@ -15,8 +15,9 @@ class CourtReservationTest < ActiveSupport::TestCase
     minute = "30" #sprintf "%02d", now.minute
     cr = CourtReservation.create!(court_number: 1, duration_minutes: 60, start_time: date_format(now, hour, minute))
     puts "Court reservation date: #{cr.start_time} .... #{cr.start_time.to_date}"
-    assert cr.today?
-    assert_equal 1, CourtReservation.today.count
+    #assert cr.today?
+    todays_reservations = CourtReservation.on_date(Date.today)
+    assert_equal 1, todays_reservations.length, "Only 1 reservation should exist for today"
   end
 
   test "should return the court's reserver" do

@@ -8,8 +8,8 @@ class CourtReservation < ActiveRecord::Base
   validates :court_number, presence: true
   validates :start_time, presence: true
 
-  def self.today
-    CourtReservation.all.select { |cr| cr.start_time.to_date == Date.today }
+  def self.on_date(date)
+    CourtReservation.all.select { |cr| cr.start_time.to_date == date }
   end
 
   def today?
