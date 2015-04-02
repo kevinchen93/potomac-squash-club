@@ -6,8 +6,13 @@ class App.Views.CourtReservations extends Backbone.View
     'click a': 'showCourtReservation'
   
   render: ->
-    @$el.html(@template(court_reservations: @collection))
+    @$el.html(@template())
+    @collection.forEach(@renderCourtReservation)
     this
+
+  renderCourtReservation: (courtReservation) =>
+    view = new App.Views.ShowNote(model: courtReservation)
+    @$('.court-reservations').append(view.render().el)
 
   showCourtReservation: (e) ->
     alert 'showCourtReservation' 

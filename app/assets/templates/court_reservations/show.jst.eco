@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Court 1</th>
+      <th>Court 2</th>
+      <th>Court 3</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% courts = court_reservations_today %>
+    <% for c1, i in courts: %>
+       <% c2 = courts[i + 1] %>
+       <% c3 = courts[i + 1] %>
+      <tr>
+	<td>
+	  <a href="<%= c1.url() %>"><%= c1.get('start_time') %></a>
+	  <br/>
+	  <%= c1.get('reserver') || "Free" %>
+	</td>
+	<td>
+	  <%= c2.get('start_time') %>
+	  <br/>
+	  <%= c2.get('reserver') || "Free" %>
+	</td>
+	<td>
+	  <%= c3.get('start_time') %>
+	  <br/>
+	  <%= c3.get('reserver') || "Free" %>
+	</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

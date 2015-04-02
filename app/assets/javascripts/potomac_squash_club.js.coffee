@@ -4,10 +4,9 @@ window.PotomacSquashClub =
   Views: {}
   Routers: {}
   initialize: ->
-    @AllCourtReservations = new @Collections.CourtReservations
-    @AllCourtReservations.fetch().done =>
-      new @Routers.PotomacSquashClubRouter
-      Backbone.history.start(pushState: true)
+    @AllCourtReservations = new @Collections.CourtReservations(@courtReservationsJson)
+    new @Routers.PotomacSquashClubRouter
+    Backbone.history.start(pushState: true)
 
 window.App = window.PotomacSquashClub
 
