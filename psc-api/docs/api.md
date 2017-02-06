@@ -33,3 +33,20 @@ http POST localhost:8080/psc/api/member \
 
 ### Delete member
 `http DELETE localhost:8080/psc/api/member/<MEMBER_ID>`
+
+## Reservations
+### List reservations
+`http GET localhost:8080/psc/api/reservation`
+
+### Create reservation
+```
+http POST localhost:8080/psc/api/reservation \
+  courtID="COURT_ID" \
+  memberID="MEMBER_ID"
+```
+
+### Get reservation
+`http GET localhost:8080/psc/api/reservation/<RESERVATION_ID>`
+
+### Delete reservation
+`http DELETE localhost:8080/psc/api/reservation/<RESERVATION_ID>`
