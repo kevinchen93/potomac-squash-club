@@ -59,7 +59,7 @@ public class MemberService {
 
 		member = memberRepository.findOneByIdAndDeletedDateTimeIsNull(id);
 		memberResource = memberResourceAssembler.toResource(member);
-		memberRepository.softDelete(id);
+		memberRepository.delete(id);
 
 		return memberResource;
 	}

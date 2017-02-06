@@ -60,7 +60,7 @@ public class CourtService {
 
 		court = courtRepository.findOneByIdAndDeletedDateTimeIsNull(id);
 		courtResource = courtResourceAssembler.toResource(court);
-		courtRepository.softDelete(id);
+		courtRepository.delete(id);
 
 		return courtResource;
 	}

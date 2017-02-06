@@ -59,7 +59,7 @@ public class ReservationService {
 
 		reservation = reservationRepository.findOneByIdAndDeletedDateTimeIsNull(id);
 		reservationResource = reservationResourceAssembler.toResource(reservation);
-		reservationRepository.softDelete(id);
+		reservationRepository.delete(id);
 
 		return reservationResource;
 	}
