@@ -29,6 +29,7 @@ public class ReservationEntityAssembler {
 		reservation = new ReservationDB();
 		reservation.setCourt(court);
 		reservation.setMember(member);
+		reservation.setTime(reservationResource.getTime());
 
 		return reservation;
 	}

@@ -42,7 +42,8 @@ http POST localhost:8080/psc/api/member \
 ```
 http POST localhost:8080/psc/api/reservation \
   courtID="COURT_ID" \
-  memberID="MEMBER_ID"
+  memberID="MEMBER_ID" \
+  time="2017-02-06T03:30:00Z"
 ```
 
 ### Get reservation

@@ -31,6 +31,7 @@ public class ReservationResourceAssembler extends EmbeddableResourceAssemblerSup
 		reservationResource.setResourceId(reservation.getId());
 		reservationResource.setCourtID(reservation.getCourt().getId());
 		reservationResource.setMemberID(reservation.getMember().getId());
+		reservationResource.setTime(reservation.getTime());
 
 		reservationResource.add(
 			linkTo(methodOn(ReservationController.class).getReservation(reservation.getId()))
