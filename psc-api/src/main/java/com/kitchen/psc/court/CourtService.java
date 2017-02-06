@@ -62,6 +62,6 @@ public class CourtService {
 		courtResource = courtResourceAssembler.toResource(court);
 		courtRepository.softDelete(id);
 
-		return courtResourceAssembler.toResource(court);
+		return courtResource;
 	}
 }

@@ -6,6 +6,7 @@ import com.kitchen.psc.member.MemberDB;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -20,11 +21,11 @@ import java.time.OffsetDateTime;
 	name = "reservation"
 )
 public class ReservationDB extends AbstractEntity {
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(foreignKey = @ForeignKey(name = "FK_reservation_member_member"))
 	private MemberDB member;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(foreignKey = @ForeignKey(name = "FK_reservation_court_court"))
 	private CourtDB court;
 
